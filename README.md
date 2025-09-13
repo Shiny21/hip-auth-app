@@ -1,57 +1,55 @@
-# hip-auth-app
-Auth App
+# Auth App
 
-A simple authentication micro-frontend application built with React.
-It demonstrates user login/logout, session & active user tracking, notifications via a Toast system, and role-based UI rendering via a shared EventBus.
+A React-based authentication micro-frontend with login/logout, role-based access, active user tracking, and toast notifications.  
 
-Features
+---
 
-Login / Logout flow
+## 🚀 Features
+## 🚀 Features
 
-Users simulate login functionality with a User ID and select a role (customer, admin, or manager).
+###  Login / Logout flow
+- Users can log in with a **User ID** and select a role (`customer`, `admin`, or `manager`).  
+- Active user sessions are stored in **sessionStorage** and **localStorage**.  
+- Handles cleanup of active users on logout.  
 
-Active user sessions are stored in sessionStorage and localStorage.
+---
 
-Handles cleanup of active users on logout.
+###  Role-based permissions
+- **customer**: Can book tickets & view own bookings.  
+- **admin**: Additional access to reports, user management, and seat maps.  
+- **manager**: Access to department reports and seat map.  
 
-Role-based permissions
+---
 
-customer: Can book tickets & view own bookings.
+### Toast Notifications
+- Centralized notifications displayed using a **ToastContainer**.  
+- Supports `success`, `warning`, `error`, and `info` messages.  
+- Auto-dismisses after **5 seconds** or can be clicked to remove.  
 
-admin: Additional access to reports, user management, and seat maps.
+---
 
-manager: Access to department reports and seat map.
+### User Profile View
+- Displays logged-in **user details** and permissions.  
+- **Admins** see an **Active Users Dashboard**.  
+- **Managers** see a **Manager View**.  
+- **Customers** get a **Customer Access Note**.  
 
-Toast Notifications
+---
 
-Centralized notifications displayed using a ToastContainer.
+### EventBus Communication
+- Decoupled components communicate via a shared **eventBus**.  
+- **Events:**  
+  - `userLoggedIn`  
+  - `userLoggedOut`  
+  - `notification`  
+  - Future events (e.g., seat booking)  
 
-Supports success, warning, error, and info messages.
+---
 
-Auto-dismisses after 5 seconds or can be clicked to remove.
+##  Tech Stack
+- React + TypeScript  
+- Jest + React Testing Library  
+- EventBus pattern  
 
-User Profile View
+---
 
-Displays logged-in user details and permissions.
-
-Admins see an Active Users Dashboard.
-
-Managers see a Manager View.
-
-Customers get a Customer Access Note.
-
-EventBus Communication
-
-Decoupled components communicate via a shared eventBus.
-
-Events: userLoggedIn, userLoggedOut, notification, and others (e.g., seat booking events for future use).
-
-🛠️ Tech Stack
-
-React (with Hooks for state management & effects)
-
-TypeScript (for type safety)
-
-Jest + React Testing Library (for unit testing)
-
-EventBus pattern for micro-frontend communication
